@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../redux/slice";
 import {
   Table,
   TableBody,
@@ -11,22 +13,23 @@ import {
 } from "@mui/material";
 
 function DataTable() {
-  const [data, setData] = useState([]);
   const isMobile = useMediaQuery("(max-width:600px)");
+  const data = useSelector((state) => state.value);
+  const dispatch = useDispatch();
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      const data = await response.json();
+      dispatch(setData(data));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
-        if (!response.ok) throw new Error("Network response was not ok");
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
     fetchData();
   }, []);
 
@@ -38,18 +41,18 @@ function DataTable() {
       >
         <Table>
           <TableHead>
-            <TableRow className="bg-gray-700">
+            <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Title</TableCell>
-              <TableCell>Body</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Username</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data.map((item) => (
-              <TableRow key={item.id} className="hover:bg-gray-700">
+              <TableRow key={item.id}>
                 <TableCell>{item.id}</TableCell>
-                <TableCell>{item.title}</TableCell>
-                <TableCell>{item.body}</TableCell>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.username}</TableCell>
               </TableRow>
             ))}
           </TableBody>

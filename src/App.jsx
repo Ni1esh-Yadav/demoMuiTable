@@ -2,7 +2,7 @@ import DataTable from "./components/DataTable";
 
 function App() {
   return (
-    <div className="bg-slate-900 ">
+    <div>
       <DataTable />
     </div>
   );
