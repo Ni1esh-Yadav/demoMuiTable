@@ -71,7 +71,7 @@ const dispatch = useDispatch();
   - **100% width** on mobile screens
 
 ```javascript
-<TableContainer component={Paper} style={{ width: '100%', maxWidth: '50%', margin: 'auto' }}>
+<TableContainer component={Paper} sx={{ width: isMobile ? "100%" : "50%", margin: "auto" }}>
   <Table>
     <TableHead>
       <TableRow>
