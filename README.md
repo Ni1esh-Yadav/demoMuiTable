@@ -102,6 +102,13 @@ const dispatch = useDispatch();
 
 ---
 
+## Laptop view
+![laptop view](https://github.com/user-attachments/assets/515f636e-f567-4097-8546-ec93f5e2e2b1)
+
+## Mobile View
+![mobile view](https://github.com/user-attachments/assets/149d8611-f72b-4287-a622-fa7cbaa5bb59)
+
+
 ## 🙏 **Credits**
 Prepared for the **ArcTech Internship** selection process.
 
