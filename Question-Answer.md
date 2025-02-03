@@ -275,6 +275,7 @@ function DataTable() {
 
 But if you are asking how i will summarize it the whole code above as mindmap this is my answer
 
+```
 Display Table in React JS
 ├── Data Fetching
 │ ├── Fetch API
@@ -293,6 +294,8 @@ Display Table in React JS
 │ ├── Pagination
 │ ├── Memoization
 │ └── Code Splitting
+
+```
 
 **I appreciate your time and consideration in reviewing my responses. Looking forward to your feedback.**
 
